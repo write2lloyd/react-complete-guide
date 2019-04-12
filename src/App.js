@@ -24,21 +24,14 @@ class App extends Component {
   }
 
   nameChangedHandler = (event, id) => {
-    console.log(event.target.value, id);
     const newPersonIndex = this.state.persons.findIndex(person => {
       return person.id === id
     })
-    console.log(newPersonIndex);
     const personToChange = {...this.state.persons[newPersonIndex]};
     personToChange.name = event.target.value;
-    console.log(personToChange);
     const persons = [...this.state.persons];
-
     persons[newPersonIndex] = personToChange;
-
     this.setState({persons: persons});
-    
-    // this.setState(newPerson);
   }
 
   togglePersonsHandler = () => {
